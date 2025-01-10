@@ -32,7 +32,7 @@ def create_app(config_name='development'):
     migrate.init_app(app, db)
 
     # Register modules
-    module_manager = ModuleManager(app)
+    module_manager = ModuleManager(app, uri=os.getenv('DATABASE_URI'))
     module_manager.register_modules()
 
     # Register login manager
